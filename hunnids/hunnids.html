@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hunnids Athletic Club — Founded 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:    #CC1416;
+      --red-dark: #8B0000;
+      --black:  #0A0A0A;
+      --dark:   #111111;
+      --card:   #181818;
+      --white:  #FFFFFF;
+      --gray:   rgba(255,255,255,0.5);
+      --border: rgba(204,20,22,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      width: 38px;
+      height: 38px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .nav-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+
+    .nav-founded {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--red);
+      letter-spacing: 2px;
+    }
+
+    .nav-cta {
+      background: var(--red);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      background:
+        radial-gradient(ellipse at center top, rgba(204,20,22,0.12) 0%, transparent 60%),
+        var(--black);
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-h {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(120px, 25vw, 220px);
+      line-height: 0.85;
+      color: var(--red);
+      opacity: 0.15;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 10vw, 96px);
+      line-height: 0.9;
+      letter-spacing: 3px;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 8px;
+    }
+
+    .hero-title .red { color: var(--red); }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--gray);
+      margin: 20px 0 16px;
+      max-width: 440px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-sports {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sport-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--red);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 3px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+
+    /* SPORTS SECTION */
+    .section {
+      padding: 80px 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 6vw, 56px);
+      letter-spacing: 1px;
+      margin-bottom: 48px;
+      line-height: 1;
+    }
+
+    .sports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2px;
+    }
+
+    .sport-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 32px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .sport-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .sport-card:hover::before { transform: scaleX(1); }
+    .sport-card:hover { border-color: var(--border); }
+
+    .sport-emoji {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .sport-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .sport-desc {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .sport-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--red);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .sport-link:hover { text-decoration: underline; }
+
+    /* YOUTH BAND */
+    .youth-band {
+      background: var(--red);
+      padding: 72px 24px;
+    }
+
+    .youth-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .youth-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(80px, 14vw, 140px);
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .youth-price-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.7);
+      margin-top: -8px;
+    }
+
+    .youth-right .section-label { color: rgba(255,255,255,0.6); }
+
+    .youth-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: 1px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .youth-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .youth-list li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .youth-list li::before {
+      content: '✓';
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--black);
+      background: var(--white);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .btn-dark {
+      background: var(--black);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+
+    /* LEAGUE BAND */
+    .league-band {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      background: rgba(204,20,22,0.04);
+    }
+
+    .league-band-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+
+    .league-band-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    .league-band-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--gray);
+      text-decoration: none;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      padding: 80px 24px;
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-sub {
+      font-size: 16px;
+      color: var(--gray);
+      margin-bottom: 36px;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 1px;
+    }
+
+    footer a { color: var(--red); text-decoration: none; }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    @media (max-width: 640px) {
+      .youth-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .nav-founded { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-left">
+      <div class="nav-logo">H</div>
+      <div>
+        <div class="nav-name">Hunnids Athletic Club</div>
+        <div class="nav-founded">Founded 2025 · Chicago South Side</div>
+      </div>
+    </div>
+    <a href="#join" class="nav-cta">Join Now</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-h">H</div>
+    <div class="hero-eyebrow">Chicago South Side · Founded 2025</div>
+    <h1 class="hero-title">
+      Hunnids<br>
+      <span class="red">Athletic Club</span>
+    </h1>
+    <p class="hero-sub">
+      One club. Four sports. Built for the South Side.
+      No experience necessary — just bring the hunger.
+    </p>
+    <div class="hero-sports">
+      <span class="sport-tag">⚽ Soccer</span>
+      <span class="sport-tag">🏀 Basketball</span>
+      <span class="sport-tag">🚣 Rowing</span>
+      <span class="sport-tag">⚡ Futsal</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#join" class="btn-primary">Join the Club</a>
+      <a href="#sports" class="btn-outline">Our Sports</a>
+    </div>
+  </section>
+
+  <!-- SPORTS -->
+  <section class="section" id="sports">
+    <div class="section-label">What We Run</div>
+    <h2 class="section-title">Four Sports.<br>One Community.</h2>
+    <div class="sports-grid">
+
+      <div class="sport-card">
+        <span class="sport-emoji">⚽</span>
+        <div class="sport-name">Soccer</div>
+        <p class="sport-desc">Competing in the OutSouth League. Men's, women's, and youth teams representing the neighborhood.</p>
+        <a href="#join" class="sport-link">Register →</a>
+      </div>
+
+      <div class="sport-card">
+        <span class="sport-emoji">🏀</span>
+        <div class="sport-name">Basketball</div>
+        <p class="sport-desc">Competitive and recreational basketball for all ages. Open runs, leagues, and development programs.</p>
+        <a href="#join" class="sport-link">Register →</a>
+      </div>
+
+      <div class="sport-card">
+        <span class="sport-emoji">🚣</span>
+        <div class="sport-name">Rowing</div>
+        <p class="sport-desc">One of the few community rowing programs on the South Side. Open to all experience levels.</p>
+        <a href="#join" class="sport-link">Register →</a>
+      </div>
+
+      <div class="sport-card">
+        <span class="sport-emoji">⚡</span>
+        <div class="sport-name">Futsal</div>
+        <p class="sport-desc">Fast, technical, indoor soccer. Year-round programming for players looking to sharpen their game.</p>
+        <a href="#join" class="sport-link">Register →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- YOUTH SIGNUP -->
+  <section class="youth-band" id="join">
+    <div class="youth-inner">
+      <div>
+        <div class="youth-price">$50</div>
+        <div class="youth-price-label">SUMMER YOUTH PROGRAM</div>
+      </div>
+      <div class="youth-right">
+        <div class="section-label">Youth · Ages 4–17</div>
+        <h2 class="youth-title">Register Your Child Today</h2>
+        <ul class="youth-list">
+          <li>2 practice sessions per week</li>
+          <li>Weekend games</li>
+          <li>Full uniform included</li>
+          <li>Practice shirt included</li>
+          <li>All skill levels welcome</li>
+          <li>No experience necessary</li>
+        </ul>
+        <a href="https://chicagosuperleague.com" class="btn-dark" target="_blank">Sign Up Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAGUE BAND -->
+  <div class="league-band">
+    <div class="league-band-label">Soccer · Competing In</div>
+    <div class="league-band-name">The OutSouth League</div>
+    <a href="https://chicagosuperleague.com" class="league-band-link" target="_blank">chicagosuperleague.com →</a>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact-section">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Ready To Run With Us?</h2>
+    <p class="contact-sub">Questions about any sport, youth registration, or adult teams? We want to hear from you.</p>
+    <div class="contact-actions">
+      <a href="mailto:info@chicagosuperleague.com" class="btn-primary">Email Us</a>
+      <a href="https://chicagosuperleague.com" class="btn-outline" target="_blank">Visit League Site</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Hunnids Athletic Club · Founded 2025 · Part of the <a href="https://chicagosuperleague.com">OutSouth League</a> · Chicago South Side</p>
+  </footer>
+
+</body>
+</html>
